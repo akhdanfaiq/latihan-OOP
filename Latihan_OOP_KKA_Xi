@@ -1,0 +1,911 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM50EyXOUBXFZNdTmedN/bQ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/akhdanfaiq/latihan-OOP/blob/main/Latihan_OOP_KKA_Xi\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Kucing:\n",
+        "# Constructor\n",
+        "  def __init__(self, nama, warna):\n",
+        "    self.nama = nama # Attribute\n",
+        "    self.warna = warna # Attribute\n",
+        "# Method\n",
+        "  def suara(self):\n",
+        "    return f\"{self.nama} berkata: Meow!\"\n",
+        "# Membuat Object (Instansiasi)\n",
+        "\n",
+        "kucing1 = Kucing(\"Luna\", \"Putih\")\n",
+        "kucing2 = Kucing(\"Garfield\", \"Oranye\")\n",
+        "# Mengakses Attribute dan Method\n",
+        "print(kucing1.nama) # Output: Luna\n",
+        "print(kucing2.nama) # Output: Garfield\n",
+        "print(kucing1.warna) # Output: Putih\n",
+        "print(kucing2.warna) # Output: Oranye\n",
+        "print(kucing1.suara()) # Output: Luna berkata: Meow!\n",
+        "print(kucing2.suara()) # Output: Garfield berkata: Meow!"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rs1h8brlVW2J",
+        "outputId": "6c036a8a-9d42-4671-961d-94ef77f7ac76"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Luna\n",
+            "Garfield\n",
+            "Putih\n",
+            "Oranye\n",
+            "Luna berkata: Meow!\n",
+            "Garfield berkata: Meow!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Parent Class\n",
+        "class Hewan:\n",
+        "  def makan(self):\n",
+        "    print(\"Hewan ini sedang makan.\")\n",
+        "# Child Class (Mewarisi Hewan)\n",
+        "class Burung(Hewan):\n",
+        "  def terbang(self):\n",
+        "    print(\"Burung sedang terbang.\")\n",
+        "# Object\n",
+        "beo = Burung()\n",
+        "\n",
+        "beo.makan() # Mewarisi dari Hewan (Output: Hewan ini sedang makan.)\n",
+        "beo.terbang() # Method milik sendiri"
+      ],
+      "metadata": {
+        "id": "btr1Cmc0XDFj",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "7fe47fb6-91e4-41f6-ff09-78735c267539"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hewan ini sedang makan.\n",
+            "Burung sedang terbang.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN 1"
+      ],
+      "metadata": {
+        "id": "8EupAfaqdxSZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ==========================================\n",
+        "# LATIHAN 1: MEMBUAT CLASS HERO\n",
+        "# ==========================================\n",
+        "\n",
+        "class Hero:\n",
+        "    # Constructor: Dijalankan saat Hero baru dibuat\n",
+        "    def __init__(self, name, hp, attack_power):\n",
+        "        self.name = name          # Nama Hero\n",
+        "        self.hp = hp              # Nyawa (Health Point)\n",
+        "        self.attack_power = attack_power  # Kekuatan Serangan\n",
+        "\n",
+        "    # Method untuk menampilkan info hero\n",
+        "    def info(self):\n",
+        "        print(f\"Hero: {self.name} | HP: {self.hp} | Power: {self.attack_power}\")\n",
+        "\n",
+        "# -- Main Program --\n",
+        "# Membuat Object (Instansiasi)\n",
+        "hero1 = Hero(\"Layla\", 100, 15)\n",
+        "hero2 = Hero(\"Zilong\", 120, 20)\n",
+        "\n",
+        "# Percobaan Tugas Analisis 1: Mengubah HP secara langsung\n",
+        "hero1.hp = 500\n",
+        "\n",
+        "# Memanggil Method dan Print\n",
+        "hero1.info()\n",
+        "hero2.info()\n",
+        "print(f\"HP Hero 1 setelah diubah: {hero1.hp}\")"
+      ],
+      "metadata": {
+        "id": "sRA64_rUhUpt",
+        "outputId": "ceddb01f-cf48-495e-d4f0-753836613749",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hero: Layla | HP: 500 | Power: 15\n",
+            "Hero: Zilong | HP: 120 | Power: 20\n",
+            "HP Hero 1 setelah diubah: 500\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Hasil Tugas Analisis 1:\n",
+        "Saat nilai hero1.hp diubah menjadi 500, atribut hp pada objek Layla langsung berprestasi berubah menjadi 500 dan perintah print(hero1.hp) mencetak angka 500. Hal ini terjadi karena atribut hp pada class Hero bersifat Public, sehingga nilainya dapat diakses dan dimanipulasi secara bebas dari luar class tanpa melalui proses validasi. Pengubahan ini hanya memengaruhi objek hero1 tanpa merubah data milik objek hero2."
+      ],
+      "metadata": {
+        "id": "iLDOIQDriWWM"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN 2"
+      ],
+      "metadata": {
+        "id": "z7d4Sno7crrL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ==========================================\n",
+        "# LATIHAN 2: INTERAKSI ANTAR OBJEK\n",
+        "# ==========================================\n",
+        "\n",
+        "class Hero:\n",
+        "    def __init__(self, name, hp, attack_power):\n",
+        "        self.name = name\n",
+        "        self.hp = hp\n",
+        "        self.attack_power = attack_power\n",
+        "\n",
+        "    def info(self):\n",
+        "        print(f\"Hero: {self.name} | HP: {self.hp} | Power: {self.attack_power}\")\n",
+        "\n",
+        "    # Method menyerang: Objek ini (self) menyerang objek lain (lawan)\n",
+        "    def serang(self, lawan):\n",
+        "        print(f\"{self.name} menyerang {lawan.name}!\")\n",
+        "        lawan.diserang(self.attack_power)\n",
+        "\n",
+        "    # Method diserang: Menerima damage\n",
+        "    def diserang(self, damage):\n",
+        "        self.hp -= damage\n",
+        "        print(f\"{self.name} terkena damage {damage}. Sisa HP: {self.hp}\")\n",
+        "\n",
+        "# -- Main Program --\n",
+        "hero1 = Hero(\"Layla\", 100, 15)\n",
+        "hero2 = Hero(\"Zilong\", 120, 20)\n",
+        "\n",
+        "print(\"\\n--- Pertarungan Dimulai ---\")\n",
+        "hero1.serang(hero2) # Layla menyerang Zilong\n",
+        "hero2.serang(hero1) # Zilong membalas"
+      ],
+      "metadata": {
+        "id": "ysJRr4usc1lC",
+        "outputId": "25f15327-203e-494b-955d-af15e8dab4d4",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "--- Pertarungan Dimulai ---\n",
+            "Layla menyerang Zilong!\n",
+            "Zilong terkena damage 15. Sisa HP: 105\n",
+            "Zilong menyerang Layla!\n",
+            "Layla terkena damage 20. Sisa HP: 80\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Hasil Tugas Analisis 2:\n",
+        "Mengirimkan objek utuh sebagai parameter lawan sangat penting agar method serang memiliki akses langsung ke seluruh atribut dan method milik objek lawan tersebut. Dengan menerima objek utuh, method tidak hanya bisa membaca namanya (lawan.name), tetapi juga dapat memanggil method lawan.diserang() untuk mengurangi nilai HP asli milik objek tersebut (lawan.hp). Jika parameter yang dikirim hanya berupa string nama, sistem tidak akan bisa memperbarui status kesehatan (HP) objek lawan secara aktual di dalam memori."
+      ],
+      "metadata": {
+        "id": "-5UDbw3HjZIM"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN 3"
+      ],
+      "metadata": {
+        "id": "_h1Rq11LhaLj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ==========================================\n",
+        "# LATIHAN 3: PEWARISAN (INHERITANCE)\n",
+        "# ==========================================\n",
+        "\n",
+        "class Hero:\n",
+        "    def __init__(self, name, hp, attack_power):\n",
+        "        self.name = name\n",
+        "        self.hp = hp\n",
+        "        self.attack_power = attack_power\n",
+        "\n",
+        "    def info(self):\n",
+        "        print(f\"Hero: {self.name} | HP: {self.hp} | Power: {self.attack_power}\")\n",
+        "\n",
+        "    def serang(self, lawan):\n",
+        "        print(f\"{self.name} menyerang {lawan.name}!\")\n",
+        "        lawan.diserang(self.attack_power)\n",
+        "\n",
+        "    def diserang(self, damage):\n",
+        "        self.hp -= damage\n",
+        "        print(f\"{self.name} terkena damage {damage}. Sisa HP: {self.hp}\")\n",
+        "\n",
+        "# Class Mage adalah anak dari class Hero\n",
+        "class Mage(Hero):\n",
+        "    def __init__(self, name, hp, attack_power, mana):\n",
+        "        # Memanggil constructor milik Parent (Hero)\n",
+        "        super().__init__(name, hp, attack_power)\n",
+        "        self.mana = mana\n",
+        "\n",
+        "    def info(self):\n",
+        "        print(f\"{self.name} (Mage) | HP: {self.hp} | Mana: {self.mana}\")\n",
+        "\n",
+        "    # Mage punya skill khusus\n",
+        "    def skill_fireball(self, lawan):\n",
+        "        if self.mana >= 20:\n",
+        "            print(f\"{self.name} menggunakan Fireball ke {lawan.name}!\")\n",
+        "            self.mana -= 20\n",
+        "            lawan.diserang(self.attack_power * 2) # Damage 2x lipat\n",
+        "        else:\n",
+        "            print(f\"{self.name} gagal skill! Mana tidak cukup.\")\n",
+        "\n",
+        "# -- Main Program --\n",
+        "print(\"\\n--- Update Class Hero ---\")\n",
+        "eudora = Mage(\"Eudora\", 80, 30, 100)\n",
+        "balmond = Hero(\"Balmond\", 200, 10)\n",
+        "\n",
+        "eudora.info()\n",
+        "eudora.serang(balmond)         # Serangan biasa (warisan dari Hero)\n",
+        "eudora.skill_fireball(balmond) # Skill khusus Mage"
+      ],
+      "metadata": {
+        "id": "GpNrnrQBhcXl",
+        "outputId": "bb2baed4-55e9-43fa-eb55-50fb3e442b89",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "--- Update Class Hero ---\n",
+            "Eudora (Mage) | HP: 80 | Mana: 100\n",
+            "Eudora menyerang Balmond!\n",
+            "Balmond terkena damage 30. Sisa HP: 170\n",
+            "Eudora menggunakan Fireball ke Balmond!\n",
+            "Balmond terkena damage 60. Sisa HP: 110\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Pesan Error yang Muncul:\n",
+        "AttributeError: 'Mage' object has no attribute 'name'\n",
+        "\n",
+        "Penjelasan Penyebab Error:\n",
+        "Error tersebut terjadi karena saat kita membuat constructor __init__ baru di class anak (Mage), constructor milik class induk (Hero) akan secara otomatis tertimpa (overridden). Ketika baris super().__init__ dihapus, proses inisialisasi atribut bawaan seperti name, hp, dan attack_power yang didefinisikan di class Hero tidak pernah dijalankan. Akibatnya, objek eudora hanya berhasil membuat atribut mana, sementara atribut name tidak pernah terbentuk di dalam memori meskipun kita telah mengirimkan string \"Eudora\" saat pemanggilan kelas.\n",
+        "\n",
+        "Peran Fungsi super():\n",
+        "Fungsi super() berperan sebagai jembatan untuk memanggil constructor maupun method milik class induk (Parent) dari dalam class anak (Child). Dengan memanggil super().__init__(), class anak dapat mengeksekusi logika pembentukan data dasar pada class induk tanpa perlu menulis ulang kodenya secara manual, sehingga proses pewarisan sifat dan atribut berjalan sempurna."
+      ],
+      "metadata": {
+        "id": "ztGyN4bWja2S"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN 4"
+      ],
+      "metadata": {
+        "id": "NGC70yjThd8g"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ==========================================\n",
+        "# LATIHAN 4: ENKAPSULASI\n",
+        "# ==========================================\n",
+        "\n",
+        "class Hero:\n",
+        "    def __init__(self, nama, hp_awal):\n",
+        "        self.nama = nama\n",
+        "        # Enkapsulasi: Private Attribute (__hp)\n",
+        "        self.__hp = hp_awal\n",
+        "\n",
+        "    # GETTER: Cara resmi melihat HP\n",
+        "    def get_hp(self):\n",
+        "        return self.__hp\n",
+        "\n",
+        "    # SETTER: Cara resmi mengubah HP (dengan validasi)\n",
+        "    def set_hp(self, nilai_baru):\n",
+        "        if nilai_baru < 0:\n",
+        "            self.__hp = 0 # HP tidak boleh negatif\n",
+        "        elif nilai_baru > 1000:\n",
+        "            print(\"Cheat terdeteksi! HP dimaksimalkan ke 1000 saja.\")\n",
+        "            self.__hp = 1000\n",
+        "        else:\n",
+        "            self.__hp = nilai_baru\n",
+        "\n",
+        "    def diserang(self, damage):\n",
+        "        sisa_hp = self.get_hp() - damage\n",
+        "        self.set_hp(sisa_hp)\n",
+        "        print(f\"{self.nama} terkena damage {damage}. Sisa HP: {self.get_hp()}\")\n",
+        "\n",
+        "# -- Uji Coba --\n",
+        "hero1 = Hero(\"Layla\", 100)\n",
+        "\n",
+        "hero1.__hp = 9999     # GAGAL (Menciptakan variabel baru di luar class)\n",
+        "hero1.set_hp(-50)     # Uji coba nilai negatif\n",
+        "print(f\"HP Hero 1: {hero1.get_hp()}\") # Output: 0\n",
+        "\n",
+        "# Percobaan Akses Paksa (Name Mangling)\n",
+        "print(f\"Mencoba akses paksa: {hero1._Hero__hp}\")"
+      ],
+      "metadata": {
+        "id": "rmxMSjFIhe8X",
+        "outputId": "b89b3cdb-e44a-42aa-f04b-f5cd506ce586",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "HP Hero 1: 0\n",
+            "Mencoba akses paksa: 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Hasil Tugas Analisis 4:\n",
+        "\n",
+        "1. Percobaan Hacking (_Hero__hp)\n",
+        "\n",
+        "Hasil: Nilai HP berhasil muncul (tidak menghasilkan error).\n",
+        "\n",
+        "Penjelasan & Name Mangling: Python menggunakan teknik Name Mangling untuk atribut private. Saat kita mendefinisikan atribut dengan dua garis bawah (__hp), Python secara otomatis mengubah nama atribut tersebut menjadi _NamaClass__namaAtribut (_Hero__hp) di dalam memori internal.\n",
+        "\n",
+        "Alasan Mengapa Dilarang: Python menerapkan prinsip \"we are all consenting adults here\", di mana perlindungan private bersifat konvensi/kesepakatan moral, bukan pembatasan mutlak. Kita tetap tidak boleh melakukannya karena merusak prinsip Enkapsulasi, berisiko tinggi menimbulkan bug jika nama class atau variabel diperbarui, serta mengabaikan aturan dan filter logika yang telah dibuat pemilik class.\n",
+        "\n",
+        "2. Uji Validasi (Menghapus Logika if dan elif)\n",
+        "\n",
+        "Hasil hero1.set_hp(-100): Nilai HP hero akan berubah menjadi -100 (bernilai negatif).\n",
+        "\n",
+        "Pentingnya Setter untuk Integritas Data: Method Setter yang dilengkapi validasi bertindak sebagai filter atau satpam data. Tanpa adanya validasi, data sistem/game dapat rusak akibat manipulasi nilai yang tidak valid (seperti HP negatif atau bernilai terlampau besar akibat cheat). Setter memastikan seluruh data yang masuk tetap logis, aman, dan sesuai dengan aturan bisnis game (Data Integrity)."
+      ],
+      "metadata": {
+        "id": "NfVKskHRj1FM"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN 5"
+      ],
+      "metadata": {
+        "id": "E9L6vu2xhhU4"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ==========================================\n",
+        "# LATIHAN 5: ABSTRACTION & INTERFACE\n",
+        "# ==========================================\n",
+        "\n",
+        "from abc import ABC, abstractmethod\n",
+        "\n",
+        "# 1. Interface / Abstract Class (KONTRAK)\n",
+        "class GameUnit(ABC):\n",
+        "    @abstractmethod\n",
+        "    def serang(self, target):\n",
+        "        pass\n",
+        "\n",
+        "    @abstractmethod\n",
+        "    def info(self):\n",
+        "        pass\n",
+        "\n",
+        "# 2. Implementasi pada Class Konkret\n",
+        "class Hero(GameUnit):\n",
+        "    def __init__(self, nama):\n",
+        "        self.nama = nama\n",
+        "\n",
+        "    def serang(self, target):\n",
+        "        print(f\"Hero {self.nama} menebas {target}!\")\n",
+        "\n",
+        "    def info(self):\n",
+        "        print(f\"Saya adalah Hero: {self.nama}\")\n",
+        "\n",
+        "class Monster(GameUnit):\n",
+        "    def __init__(self, jenis):\n",
+        "        self.jenis = jenis\n",
+        "\n",
+        "    def serang(self, target):\n",
+        "        print(f\"Monster {self.jenis} menggigit {target}!\")\n",
+        "\n",
+        "    def info(self):\n",
+        "        print(f\"Saya adalah Monster: {self.jenis}\")\n",
+        "\n",
+        "# -- Uji Coba --\n",
+        "h = Hero(\"Alucard\")\n",
+        "m = Monster(\"Serigala\")\n",
+        "h.info()\n",
+        "m.info()\n",
+        "h.serang(\"Serigala\")\n",
+        "m.serang(\"Alucard\")\n",
+        "\n",
+        "# Menguji coba pembuatan objek dari Abstract Class langsung\n",
+        "try:\n",
+        "    unit = GameUnit()\n",
+        "except TypeError as e:\n",
+        "    print(f\"\\n[ERROR TERDETEKSI]: {e}\")"
+      ],
+      "metadata": {
+        "id": "B4tSJnc3hjRT",
+        "outputId": "c96499ce-2615-407d-94ac-c71d03ad5ea5",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Saya adalah Hero: Alucard\n",
+            "Saya adalah Monster: Serigala\n",
+            "Hero Alucard menebas Serigala!\n",
+            "Monster Serigala menggigit Alucard!\n",
+            "\n",
+            "[ERROR TERDETEKSI]: Can't instantiate abstract class GameUnit without an implementation for abstract methods 'info', 'serang'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1. Melanggar Kontrak (Menghapus Method serang)\n",
+        "\n",
+        "Pesan Error:\n",
+        "TypeError: Can't instantiate abstract class Hero with abstract method serang\n",
+        "\n",
+        "Penjelasan Pesan Error:\n",
+        "Pesan tersebut berarti Python menolak pembuatan objek dari class Hero karena class tersebut belum menyelesaikan \"kontrak\" atau janji dari class induknya (GameUnit). Karena GameUnit telah menetapkan bahwa method serang wajib ada, maka class Hero masih dianggap bersifat abstrak selama belum mendefinisikan method tersebut secara nyata.\n",
+        "\n",
+        "Konsekuensi:\n",
+        "Jika kita lupa membuat method yang telah dijanjikan di Interface, program akan langsung menghentikan proses (error saat runtime) dan objek dari class turunan tersebut tidak akan pernah bisa dibuat sama sekali.\n",
+        "\n",
+        "2. Mencetak Cetakan (unit = GameUnit())\n",
+        "\n",
+        "Alasan Dilarang:\n",
+        "GameUnit adalah Abstract Base Class yang berisi rancangan mentah tanpa implementasi kode yang konkrit (hanya berupa arahan pass). Membuat objek langsung dari GameUnit tidak masuk akal karena unit tersebut tidak memiliki identitas, bentuk, maupun perilaku yang terdefinisi secara spesifik.\n",
+        "\n",
+        "Kegunaan GameUnit:\n",
+        "Meskipun tidak bisa dijadikan objek nyata, GameUnit sangat berguna sebagai cetakan/standar (blueprint) dan penjamin konsistensi. Class ini memaksa seluruh pengembang (programmer) agar setiap jenis karakter baru (baik Hero, Monster, NPC, dll.) memiliki struktur interaksi dan method yang seragam tanpa ada fitur dasar yang terlewat."
+      ],
+      "metadata": {
+        "id": "7HT9P2Tvj26F"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN 6"
+      ],
+      "metadata": {
+        "id": "uh9GfK3yhloZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ==========================================\n",
+        "# LATIHAN 6: POLYMORPHISM\n",
+        "# ==========================================\n",
+        "\n",
+        "class Hero:\n",
+        "    def __init__(self, nama):\n",
+        "        self.nama = nama\n",
+        "\n",
+        "    def serang(self):\n",
+        "        print(\"Hero menyerang dengan tangan kosong.\")\n",
+        "\n",
+        "class Mage(Hero):\n",
+        "    def serang(self):\n",
+        "        print(f\"{self.nama} (Mage) menembakkan Bola Api! Boom!\")\n",
+        "\n",
+        "class Archer(Hero):\n",
+        "    def serang(self):\n",
+        "        print(f\"{self.nama} (Archer) memanah dari jauh! Jleb!\")\n",
+        "\n",
+        "class Fighter(Hero):\n",
+        "    def serang(self):\n",
+        "        print(f\"{self.nama} (Fighter) memukul dengan pedang! Slash!\")\n",
+        "\n",
+        "# Tugas Analisis 6.1: Menambahkan class Healer\n",
+        "class Healer(Hero):\n",
+        "    def serang(self):\n",
+        "        print(f\"{self.nama} tidak menyerang, tapi menyembuhkan teman!\")\n",
+        "\n",
+        "# -- Penerapan Polymorphism --\n",
+        "pasukan = [\n",
+        "    Mage(\"Eudora\"),\n",
+        "    Archer(\"Miya\"),\n",
+        "    Fighter(\"Zilong\"),\n",
+        "    Mage(\"Gord\"),\n",
+        "    Healer(\"Rafaela\") # Ditambahkan ke dalam list\n",
+        "]\n",
+        "\n",
+        "print(\"\\n--- PERANG DIMULAI ---\")\n",
+        "for pahlawan in pasukan:\n",
+        "    pahlawan.serang()"
+      ],
+      "metadata": {
+        "id": "I431MCnchnZP",
+        "outputId": "c107bfc1-b3a7-4a7f-a2ab-4c6382f448fc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "--- PERANG DIMULAI ---\n",
+            "Eudora (Mage) menembakkan Bola Api! Boom!\n",
+            "Miya (Archer) memanah dari jauh! Jleb!\n",
+            "Zilong (Fighter) memukul dengan pedang! Slash!\n",
+            "Gord (Mage) menembakkan Bola Api! Boom!\n",
+            "Rafaela tidak menyerang, tapi menyembuhkan teman!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Hasil Tugas Analisis 6:\n",
+        "\n",
+        "1. Uji Skalabilitas (Menambahkan Class Healer)\n",
+        "\n",
+        "Hasil: Program dapat berjalan dengan sangat lancar tanpa mengalami error sama sekali.\n",
+        "\n",
+        "Keuntungan Polimorfisme: Polimorfisme membuat sistem bersifat Scalable (mudah dikembangkan) dan Maintainable (mudah dirawat). Programmer dapat menambahkan puluhan karakter baru di masa depan tanpa perlu mengubah logika utama aplikasi (seperti kode looping pemanggilan serangan). Hal ini menghemat waktu pengembangan dan meminimalkan risiko timbulnya bug pada kode yang sudah ada.\n",
+        "\n",
+        "2. Konsistensi Penamaan (tembak_panah pada Archer)\n",
+        "\n",
+        "Hasil: Saat method diubah menjadi tembak_panah(), objek Archer tidak lagi menjalankan aksi memanah, melainkan mengeksekusi method serang() bawaan milik class induk (Hero) dengan keluaran teks: \"Hero menyerang dengan tangan kosong.\"\n",
+        "\n",
+        "Alasan Pentingnya Kesamaan Nama: Polimorfisme bekerja berdasarkan antarmuka (interface) dan nama method yang seragam. Agar perintah tunggal seperti pahlawan.serang() dapat bekerja secara dinamis pada semua objek, setiap class anak harus melakukan pembaruan (override) menggunakan nama method yang persis sama dengan yang didefinisikan pada class induknya. Jika namanya berbeda, Python akan menganggap method tersebut sebagai fungsi baru yang terpisah, bukan bentuk variasi dari perintah serang()."
+      ],
+      "metadata": {
+        "id": "5q7Bt_5TkOjz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "LATIHAN KELOMPOK"
+      ],
+      "metadata": {
+        "id": "ToKh4OSjhHfg"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from abc import ABC, abstractmethod\n",
+        "\n",
+        "\n",
+        "# =========================================================\n",
+        "# ABSTRACT CLASS\n",
+        "# =========================================================\n",
+        "\n",
+        "class KamarHotel(ABC):\n",
+        "    def __init__(self, nama_kamar, stok, harga_dasar):\n",
+        "        self.nama_kamar = nama_kamar\n",
+        "        self.__stok = 0\n",
+        "        self.__harga_dasar = harga_dasar\n",
+        "\n",
+        "        # Menggunakan setter untuk validasi stok awal\n",
+        "        self.tambah_stok(stok)\n",
+        "\n",
+        "    # Getter stok\n",
+        "    def get_stok(self):\n",
+        "        return self.__stok\n",
+        "\n",
+        "    # Getter harga dasar\n",
+        "    def get_harga_dasar(self):\n",
+        "        return self.__harga_dasar\n",
+        "\n",
+        "    # Method untuk menambah/mengubah stok\n",
+        "    def tambah_stok(self, jumlah):\n",
+        "        if self.__stok + jumlah < 0:\n",
+        "            print(\n",
+        "                f\"Gagal update stok {self.nama_kamar}! \"\n",
+        "                f\"Stok tidak boleh negatif ({jumlah}).\"\n",
+        "            )\n",
+        "        else:\n",
+        "            self.__stok += jumlah\n",
+        "\n",
+        "    # Abstract method\n",
+        "    @abstractmethod\n",
+        "    def tampilkan_detail(self):\n",
+        "        pass\n",
+        "\n",
+        "    @abstractmethod\n",
+        "    def hitung_harga_total(self, jumlah_malam):\n",
+        "        pass\n",
+        "\n",
+        "\n",
+        "# =========================================================\n",
+        "# CHILD CLASS: KAMAR DELUXE\n",
+        "# =========================================================\n",
+        "\n",
+        "class KamarDeluxe(KamarHotel):\n",
+        "\n",
+        "    def __init__(self, nama_kamar, stok, harga_dasar, fasilitas):\n",
+        "        super().__init__(nama_kamar, stok, harga_dasar)\n",
+        "        self.fasilitas = fasilitas\n",
+        "\n",
+        "    # Polymorphism / Override\n",
+        "    def tampilkan_detail(self):\n",
+        "        pajak = self.get_harga_dasar() * 10 / 100\n",
+        "\n",
+        "        print(\n",
+        "            f\"[DELUXE] {self.nama_kamar} | \"\n",
+        "            f\"Fasilitas: {self.fasilitas}\"\n",
+        "        )\n",
+        "        print(\n",
+        "            f\"Harga Dasar/Malam: Rp {self.get_harga_dasar():,.0f} | \"\n",
+        "            f\"Pajak(10%): Rp {pajak:,.0f}\"\n",
+        "        )\n",
+        "\n",
+        "    # Polymorphism / Override\n",
+        "    def hitung_harga_total(self, jumlah_malam):\n",
+        "        harga_dasar = self.get_harga_dasar()\n",
+        "        pajak = harga_dasar * 10 / 100\n",
+        "\n",
+        "        return (harga_dasar + pajak) * jumlah_malam\n",
+        "\n",
+        "\n",
+        "# =========================================================\n",
+        "# CHILD CLASS: KAMAR STANDARD\n",
+        "# =========================================================\n",
+        "\n",
+        "class KamarStandard(KamarHotel):\n",
+        "\n",
+        "    def __init__(self, nama_kamar, stok, harga_dasar, kapasitas):\n",
+        "        super().__init__(nama_kamar, stok, harga_dasar)\n",
+        "        self.kapasitas = kapasitas\n",
+        "\n",
+        "    # Polymorphism / Override\n",
+        "    def tampilkan_detail(self):\n",
+        "        pajak = self.get_harga_dasar() * 5 / 100\n",
+        "\n",
+        "        print(\n",
+        "            f\"[STANDARD] {self.nama_kamar} | \"\n",
+        "            f\"Kapasitas: {self.kapasitas}\"\n",
+        "        )\n",
+        "        print(\n",
+        "            f\"Harga Dasar/Malam: Rp {self.get_harga_dasar():,.0f} | \"\n",
+        "            f\"Pajak(5%): Rp {pajak:,.0f}\"\n",
+        "        )\n",
+        "\n",
+        "    # Polymorphism / Override\n",
+        "    def hitung_harga_total(self, jumlah_malam):\n",
+        "        harga_dasar = self.get_harga_dasar()\n",
+        "        pajak = harga_dasar * 5 / 100\n",
+        "\n",
+        "        return (harga_dasar + pajak) * jumlah_malam\n",
+        "\n",
+        "\n",
+        "# =========================================================\n",
+        "# FUNGSI PROSES TRANSAKSI\n",
+        "# =========================================================\n",
+        "\n",
+        "def proses_transaksi(daftar_pesanan):\n",
+        "    total_tagihan = 0\n",
+        "\n",
+        "    print(\"\\n--- STRUK PEMESANAN ---\")\n",
+        "\n",
+        "    for nomor, pesanan in enumerate(daftar_pesanan, start=1):\n",
+        "        kamar = pesanan[\"kamar\"]\n",
+        "        jumlah_malam = pesanan[\"malam\"]\n",
+        "\n",
+        "        kamar.tampilkan_detail()\n",
+        "\n",
+        "        subtotal = kamar.hitung_harga_total(jumlah_malam)\n",
+        "\n",
+        "        print(\n",
+        "            f\"Menginap: {jumlah_malam} malam | \"\n",
+        "            f\"Subtotal: Rp {subtotal:,.0f}\"\n",
+        "        )\n",
+        "        print()\n",
+        "\n",
+        "        total_tagihan += subtotal\n",
+        "\n",
+        "    print(\"----------------------------------------\")\n",
+        "    print(f\"TOTAL TAGIHAN: Rp {total_tagihan:,.0f}\")\n",
+        "    print(\"----------------------------------------\")\n",
+        "\n",
+        "\n",
+        "# =========================================================\n",
+        "# MAIN PROGRAM\n",
+        "# =========================================================\n",
+        "\n",
+        "print(\"--- SETUP DATA KAMAR ---\")\n",
+        "\n",
+        "# Admin membuat kamar\n",
+        "deluxe = KamarDeluxe(\n",
+        "    \"Kamar Deluxe Sea View\",\n",
+        "    0,\n",
+        "    1_500_000,\n",
+        "    \"Private Pool\"\n",
+        ")\n",
+        "\n",
+        "standard = KamarStandard(\n",
+        "    \"Kamar Standard Superior\",\n",
+        "    0,\n",
+        "    500_000,\n",
+        "    \"2 Orang\"\n",
+        ")\n",
+        "\n",
+        "\n",
+        "# Admin menambahkan stok\n",
+        "deluxe.tambah_stok(10)\n",
+        "print(\"Berhasil menambahkan stok Kamar Deluxe: 10 unit.\")\n",
+        "\n",
+        "\n",
+        "# Mencoba memasukkan stok negatif\n",
+        "standard.tambah_stok(-5)\n",
+        "\n",
+        "\n",
+        "# Menambahkan stok standard\n",
+        "standard.tambah_stok(20)\n",
+        "print(\"Berhasil menambahkan stok Kamar Standard: 20 unit.\")\n",
+        "\n",
+        "\n",
+        "# =========================================================\n",
+        "# PEMESANAN\n",
+        "# =========================================================\n",
+        "\n",
+        "daftar_pesanan = [\n",
+        "    {\n",
+        "        \"kamar\": deluxe,\n",
+        "        \"malam\": 2\n",
+        "    },\n",
+        "    {\n",
+        "        \"kamar\": standard,\n",
+        "        \"malam\": 1\n",
+        "    }\n",
+        "]\n",
+        "\n",
+        "\n",
+        "# Memproses transaksi\n",
+        "proses_transaksi(daftar_pesanan)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3m0u14rPhKol",
+        "outputId": "1ca2dbca-6358-4454-cdcf-dd28b0ce9611"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- SETUP DATA KAMAR ---\n",
+            "Berhasil menambahkan stok Kamar Deluxe: 10 unit.\n",
+            "Gagal update stok Kamar Standard Superior! Stok tidak boleh negatif (-5).\n",
+            "Berhasil menambahkan stok Kamar Standard: 20 unit.\n",
+            "\n",
+            "--- STRUK PEMESANAN ---\n",
+            "[DELUXE] Kamar Deluxe Sea View | Fasilitas: Private Pool\n",
+            "Harga Dasar/Malam: Rp 1,500,000 | Pajak(10%): Rp 150,000\n",
+            "Menginap: 2 malam | Subtotal: Rp 3,300,000\n",
+            "\n",
+            "[STANDARD] Kamar Standard Superior | Kapasitas: 2 Orang\n",
+            "Harga Dasar/Malam: Rp 500,000 | Pajak(5%): Rp 25,000\n",
+            "Menginap: 1 malam | Subtotal: Rp 525,000\n",
+            "\n",
+            "----------------------------------------\n",
+            "TOTAL TAGIHAN: Rp 3,825,000\n",
+            "----------------------------------------\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Deskripsi Proyek**\n",
+        "\n",
+        "MyEdotel merupakan sistem manajemen kamar hotel sederhana berbasis Python yang dirancang untuk mengelola data kamar, stok, harga, serta proses pemesanan. Proyek ini menerapkan konsep **Object-Oriented Programming (OOP)**, meliputi **Abstraction, Encapsulation, Inheritance, dan Polymorphism** untuk menghasilkan sistem yang terstruktur, aman, dan fleksibel.\n",
+        "]"
+      ],
+      "metadata": {
+        "id": "UAtvGwMviAOx"
+      }
+    }
+  ]
+}
